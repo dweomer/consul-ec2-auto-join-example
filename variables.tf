@@ -2,14 +2,6 @@ variable "aws_region" {
   description = "AWS region to create the environment"
 }
 
-variable "aws_access_key" {
-  description = "AWS access key for account"
-}
-
-variable "aws_secret_key" {
-  description = "AWS secret for account"
-}
-
 variable "instance_type" {
   default = "t2.micro"
 }
@@ -35,7 +27,6 @@ variable "clients" {
 
 variable "consul_version" {
   description = "The version of Consul to install (server and client)."
-  default     = "0.7.5"
 }
 
 variable "vpc_cidr_block" {
@@ -45,17 +36,17 @@ variable "vpc_cidr_block" {
 
 variable "cidr_blocks" {
   description = "The CIDR blocks to create the workstations in."
-  default     = ["10.1.1.0/24", "10.1.2.0/24"]
+  default     = ["10.1.0.0/24", "10.1.1.0/24", "10.1.2.0/24"]
 }
 
 variable "consul_join_tag_key" {
-  description = "The key of the tag to auto-jon on EC2."
-  default     = "consul_join"
+  description = "The key of the tag to auto-join on EC2."
+  default     = "Consul-AutoJoin"
 }
 
 variable "consul_join_tag_value" {
   description = "The value of the tag to auto-join on EC2."
-  default     = "training"
+  default     = "example-root"
 }
 
 variable "public_key_path" {
